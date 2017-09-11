@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="524e6262-133d-4762-ae8b-4436d4a4db26" name="Default" comment="Added constants for convenience.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="524e6262-133d-4762-ae8b-4436d4a4db26" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -581,12 +579,20 @@
       <workItem from="1504942472103" duration="1494000" />
       <workItem from="1504944256867" duration="748000" />
       <workItem from="1505112075025" duration="1216000" />
-      <workItem from="1505113482768" duration="2707000" />
+      <workItem from="1505113482768" duration="2771000" />
     </task>
+    <task id="LOCAL-00001" summary="Added constants for convenience.">
+      <created>1505117878654</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1505117878654</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76520000" />
+    <option name="totallyTimeSpent" value="76584000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1272" y="-8" width="1296" height="1040" extended-state="6" />
