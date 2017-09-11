@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_testberkeleydb" default="compile.module.testberkeleydb">
+  <dirname property="module.testberkeleydb.basedir" file="${ant.file.module_testberkeleydb}"/>
+  
+  <property name="module.jdk.home.testberkeleydb" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.testberkeleydb" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.testberkeleydb" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.testberkeleydb" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="testberkeleydb.output.dir" value="${module.testberkeleydb.basedir}/out/production/testBerkeleyDB"/>
+  <property name="testberkeleydb.testoutput.dir" value="${module.testberkeleydb.basedir}/out/test/testBerkeleyDB"/>
+  
+  <path id="testberkeleydb.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="testberkeleydb.module.production.classpath">
+    <path refid="${module.jdk.classpath.testberkeleydb}"/>
+    <path refid="library.je-7.4.5.classpath"/>
+  </path>
+  
+  <path id="testberkeleydb.runtime.production.module.classpath">
+    <pathelement location="${testberkeleydb.output.dir}"/>
+    <path refid="library.je-7.4.5.classpath"/>
+  </path>
+  
+  <path id="testberkeleydb.module.classpath">
+    <path refid="${module.jdk.classpath.testberkeleydb}"/>
+    <pathelement location="${testberkeleydb.output.dir}"/>
+    <path refid="library.je-7.4.5.classpath"/>
+  </path>
+  
+  <path id="testberkeleydb.runtime.module.classpath">
+    <pathelement location="${testberkeleydb.testoutput.dir}"/>
+    <pathelement location="${testberkeleydb.output.dir}"/>
+    <path refid="library.je-7.4.5.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.testberkeleydb">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.testberkeleydb">
+    <patternset refid="excluded.from.module.testberkeleydb"/>
+  </patternset>
+  
+  <path id="testberkeleydb.module.sourcepath">
+    <dirset dir="${module.testberkeleydb.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.testberkeleydb" depends="compile.module.testberkeleydb.production,compile.module.testberkeleydb.tests" description="Compile module testBerkeleyDB"/>
+  
+  <target name="compile.module.testberkeleydb.production" depends="register.custom.compilers" description="Compile module testBerkeleyDB; production classes">
+    <mkdir dir="${testberkeleydb.output.dir}"/>
+    <javac2 destdir="${testberkeleydb.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.testberkeleydb}/javac">
+      <compilerarg line="${compiler.args.testberkeleydb}"/>
+      <bootclasspath refid="testberkeleydb.module.bootclasspath"/>
+      <classpath refid="testberkeleydb.module.production.classpath"/>
+      <src refid="testberkeleydb.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.testberkeleydb"/>
+    </javac2>
+    
+    <copy todir="${testberkeleydb.output.dir}">
+      <fileset dir="${module.testberkeleydb.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.testberkeleydb.tests" depends="register.custom.compilers,compile.module.testberkeleydb.production" description="compile module testBerkeleyDB; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.testberkeleydb" description="cleanup module">
+    <delete dir="${testberkeleydb.output.dir}"/>
+    <delete dir="${testberkeleydb.testoutput.dir}"/>
+  </target>
+</project>

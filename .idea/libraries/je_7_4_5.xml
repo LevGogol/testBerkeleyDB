@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="je-7.4.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/je-7.4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/JEJConsole.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/RepJEJConsole.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
